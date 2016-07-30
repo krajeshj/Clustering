@@ -11,8 +11,7 @@ Including Code
 
 You can include R code in the document as follows:
 
-Exercise 0: EXPLORE the data
-============================
+### Exercise 0: EXPLORE the data
 
 install these packages if you don't have them already install.packages(c("cluster", "rattle","NbClust"))
 
@@ -33,8 +32,7 @@ Now load the data and look at the first few rows
     ## 5          0.39            1.82  4.32 1.04     2.93     735
     ## 6          0.34            1.97  6.75 1.05     2.85    1450
 
-Exercise 1: TRANSFORM and LOAD :
-================================
+### Exercise 1: TRANSFORM and LOAD :
 
 Remove the first column from the data and scale it using the scale() function
 
@@ -110,8 +108,7 @@ wssplot(df)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
-Exercise 2: Analyze the plot
-============================
+### Exercise 2: Analyze the plot
 
 ##### \* How many clusters does this method suggest?
 
@@ -191,8 +188,7 @@ How many clusters does this method suggest?
 
     ## [1] " Accordingto NbClust method it was 3"
 
-Exercise 4: Perform K-means Clustering with k=3
-===============================================
+### Exercise 4: Perform K-means Clustering with k=3
 
 #### Once you've picked the number of clusters, run k-means
 
@@ -206,8 +202,7 @@ fit.km <- kmeans(df, 3, nstart=20)
 # Now we want to evaluate how well this clustering does.
 ```
 
-Exercise 5: Compare kmeans fit\_km with Wine types
-==================================================
+### Exercise 5: Compare kmeans fit\_km with Wine types
 
 #### using the table() function, show how the clusters in fit.km\(clusters #### compares to the actual wine types in wine\)Type. Would you consider this a good
 
@@ -225,8 +220,7 @@ table(fit.km$cluster, as.factor(wine$Type))
 
 Wine Types 1 and 3 are in perfect agreement Wine Type 2 is mostly well clustered but not in perfect agreement
 
-Exercise 6: Visualize
-=====================
+### Exercise 6: Visualize
 
 #### \* Visualize these clusters using function clusplot() from the cluster library
 
@@ -238,4 +232,4 @@ clusplot( ... )
 
 ![](README_files/figure-markdown_github/unnamed-chunk-13-1.png)
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. Contact: at k.rajesh.jATg..l.com

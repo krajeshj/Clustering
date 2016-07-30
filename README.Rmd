@@ -16,7 +16,7 @@ This is an R Markdown format used for publishing markdown documents to GitHub. W
 You can include R code in the document as follows:
 
 
-# Exercise 0: EXPLORE the data 
+### Exercise 0: EXPLORE the data 
 install these packages if you don't have them already
 install.packages(c("cluster", "rattle","NbClust"))
 
@@ -27,7 +27,7 @@ Now load the data and look at the first few rows
 data(wine, package="rattle")
 head(wine)
 ```
-# Exercise 1: TRANSFORM  and LOAD : 
+### Exercise 1: TRANSFORM  and LOAD : 
 Remove the first column from the data and scale it using the scale() function
 ```{r, echo=FALSE}
 df<-wine
@@ -69,7 +69,7 @@ wssplot(df)
 ```
 
 
-# Exercise 2: Analyze the plot
+### Exercise 2: Analyze the plot
 #####   * How many clusters does this method suggest?
      Ans: 3 Clusters. The difference going from 1-3 is more than going from 3-4 on the Scree plot
 #####   * Why does this method work? What's the intuition behind it?
@@ -106,7 +106,7 @@ How many clusters does this method suggest?
 print(" Accordingto NbClust method it was 3")
 ```
 
-# Exercise 4: Perform K-means Clustering with k=3
+### Exercise 4: Perform K-means Clustering with k=3
 ####Once you've picked the number of clusters, run k-means 
 ##### using this number of clusters. Output the result of calling kmeans()
 ##### into a variable fit.km
@@ -116,7 +116,7 @@ fit.km <- kmeans(df, 3, nstart=20)
 # Now we want to evaluate how well this clustering does.
 ```
 
-# Exercise 5: Compare kmeans fit_km with Wine types
+### Exercise 5: Compare kmeans fit_km with Wine types
 ####using the table() function, show how the clusters in fit.km$clusters
 #### compares to the actual wine types in wine$Type. Would you consider this a good
 #### clustering 
@@ -127,7 +127,7 @@ table(fit.km$cluster, as.factor(wine$Type))
   Wine Types 1 and 3 are in perfect agreement
   Wine Type 2 is mostly  well clustered but not  in perfect agreement
 
-# Exercise 6: Visualize
+### Exercise 6: Visualize
 #### * Visualize these clusters using  function clusplot() from the cluster library
 #### * Would you consider this a good clustering?
 ####     Ans: No, the inter cluster distance is small and the Diameters are large
@@ -151,3 +151,4 @@ library("cluster")
  
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Contact: at k.rajesh.jATg..l.com
