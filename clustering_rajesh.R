@@ -4,7 +4,7 @@
 
 # Exercise 0: Install these packages if you don't have them already
 
-# install.packages(c("cluster", "rattle","NbClust"))
+#install.packages(c("cluster", "rattle","NbClust"))
 
 # Now load the data and look at the first few rows
 data(wine, package="rattle")
@@ -44,7 +44,8 @@ wssplot(df)
 #   * Why does this method work? What's the intuition behind it?
 #   * Look at the code for wssplot() and figure out how it works
 
-print(" Itlooks like 13-14 has the least change")
+print(" It looks like 3->4 seems to be where the elbow is") 
+print(" The drop in difference  is the most between 1 and 3 clusters")
 
 # Method 2: Use the NbClust library, which runs many experiments
 # and gives a distribution of potential number of clusters.
@@ -56,6 +57,7 @@ barplot(table(nc$Best.n[1,]),
 	          xlab="Numer of Clusters", ylab="Number of Criteria",
 		            main="Number of Clusters Chosen by 26 Criteria")
 
+print( "The NbClust method also came up with number of clusters to be 3")
 
 # Exercise 3: How many clusters does this method suggest?
 print(" Accordingto NbClust method it was 3")
@@ -71,10 +73,23 @@ fit.km <- kmeans(df, 3, nstart=20)
 # Exercise 5: using the table() function, show how the clusters in fit.km$clusters
 # compares to the actual wine types in wine$Type. Would you consider this a good
 # clustering?
-table(fit.km$cluster, wine$Type)
+table(fit.km$cluster, as.factor(wine$Type))
+
+
+# Wine types 1 and 3 are well classified
+
+print("#    1  2  3")
+print("# 1  0  3 48")
+print("# 2  0 65  0")
+print("# 3 59  3  0")
+
+print("Wine Types 1 and 3 are in perfect agreement")
+print("Wine Type 2 is mostly  well clustered")
 
 # Exercise 6:
 # * Visualize these clusters using  function clusplot() from the cluster library
 # * Would you consider this a good clustering?
 
 #clusplot( ... )
+clusplot (df,fit.km$cluster , diss = F, cor = T, stand = F, lines = 2, shade = F, color = F, labels = 0, plotchar = T, span = T)
+
